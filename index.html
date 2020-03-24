@@ -151,6 +151,102 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-计算机组成原理之cpu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8Bcpu/">计算机组成原理之cpu</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8Bcpu/" class="archive-article-date">
+  	<time datetime="2020-03-22T13:44:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h1><h2 id="一、cpu组成"><a href="#一、cpu组成" class="headerlink" title="一、cpu组成"></a>一、cpu组成</h2><h3 id="1-运算器"><a href="#1-运算器" class="headerlink" title="1. 运算器"></a>1. 运算器</h3><ul>
+<li>组成：算术逻辑单元（ALU）、通用寄存器、数据缓冲寄存器DR和状态条件寄存器PSW</li>
+<li>功能：<ul>
+<li>执行所有的算术运算</li>
+<li>执行所有的逻辑运算，并进行逻辑测试，如零值测试或两个值的比较<h3 id="2-控制器"><a href="#2-控制器" class="headerlink" title="2. 控制器"></a>2. 控制器</h3></li>
+</ul>
+</li>
+<li>组成：程序计数器、指令寄存器、指令译码器、时序产生器和操作控制器</li>
+<li>功能：<ul>
+<li>从指令cache中取出一条指令，并指出下一条指令在指令cache中的位置</li>
+<li>对指令进行译码或测试，并产生相应的操作控制信号，以便启动规定的动作</li>
+<li>指挥并控制CPU、数据cache和输入/输出设备之间数据流动的方向<h3 id="3-cache"><a href="#3-cache" class="headerlink" title="3. cache"></a>3. cache</h3><h3 id="4-寄存器"><a href="#4-寄存器" class="headerlink" title="4. 寄存器"></a>4. 寄存器</h3></li>
+</ul>
+</li>
+<li>通用寄存器：存放操作数</li>
+<li>数据寄存器：存放操作数</li>
+<li>地址寄存器：存放地址</li>
+<li>状态寄存器</li>
+<li>控制寄存器<h3 id="5-中断系统"><a href="#5-中断系统" class="headerlink" title="5. 中断系统"></a>5. 中断系统</h3><h2 id="二、功能"><a href="#二、功能" class="headerlink" title="二、功能"></a>二、功能</h2><h3 id="1-指令控制-程序是一个指令序列，这些指令的相互顺序不能任意颠倒，必须严格按程序规定的顺序进行"><a href="#1-指令控制-程序是一个指令序列，这些指令的相互顺序不能任意颠倒，必须严格按程序规定的顺序进行" class="headerlink" title="1. 指令控制: 程序是一个指令序列，这些指令的相互顺序不能任意颠倒，必须严格按程序规定的顺序进行"></a>1. 指令控制: 程序是一个指令序列，这些指令的相互顺序不能任意颠倒，必须严格按程序规定的顺序进行</h3><h3 id="2-操作控制-CPU管理并产生由内存取出的每条指令的操作信号，把各种操作信号送往相应部件，从而控制这些部件按指令的要求进行动作"><a href="#2-操作控制-CPU管理并产生由内存取出的每条指令的操作信号，把各种操作信号送往相应部件，从而控制这些部件按指令的要求进行动作" class="headerlink" title="2. 操作控制: CPU管理并产生由内存取出的每条指令的操作信号，把各种操作信号送往相应部件，从而控制这些部件按指令的要求进行动作"></a>2. 操作控制: CPU管理并产生由内存取出的每条指令的操作信号，把各种操作信号送往相应部件，从而控制这些部件按指令的要求进行动作</h3><h3 id="3-时间控制-对各种操作实施时间上的定时"><a href="#3-时间控制-对各种操作实施时间上的定时" class="headerlink" title="3. 时间控制: 对各种操作实施时间上的定时"></a>3. 时间控制: 对各种操作实施时间上的定时</h3><h3 id="4-数据加工-对数据进行算术运算和逻辑运算处理"><a href="#4-数据加工-对数据进行算术运算和逻辑运算处理" class="headerlink" title="4. 数据加工:对数据进行算术运算和逻辑运算处理"></a>4. 数据加工:对数据进行算术运算和逻辑运算处理</h3><h2 id="三、指令周期"><a href="#三、指令周期" class="headerlink" title="三、指令周期"></a>三、指令周期</h2>一般指令执行过程：取指令-&gt;指令译码-&gt;操作数地址计算-&gt;取操作数-&gt;数据操作指令执行-&gt;操作数地址计算-&gt;存操作数-&gt;取下一条指令<br><img src="https://s1.ax1x.com/2020/03/24/8H5Vq1.png" alt=""><h3 id="1-取值周期"><a href="#1-取值周期" class="headerlink" title="1. 取值周期"></a>1. 取值周期</h3><h3 id="2-间指周期"><a href="#2-间指周期" class="headerlink" title="2. 间指周期"></a>2. 间指周期</h3><h3 id="3-执行周期"><a href="#3-执行周期" class="headerlink" title="3. 执行周期"></a>3. 执行周期</h3><h3 id="4-中断周期"><a href="#4-中断周期" class="headerlink" title="4. 中断周期"></a>4. 中断周期</h3><h2 id="四、指令流水"><a href="#四、指令流水" class="headerlink" title="四、指令流水"></a>四、指令流水</h2><h3 id="1-并发：两个或两个以上事件同一时间段发生"><a href="#1-并发：两个或两个以上事件同一时间段发生" class="headerlink" title="1. 并发：两个或两个以上事件同一时间段发生"></a>1. 并发：两个或两个以上事件同一时间段发生</h3><h3 id="2-同时：两个或两个以上事件同一时刻发生"><a href="#2-同时：两个或两个以上事件同一时刻发生" class="headerlink" title="2. 同时：两个或两个以上事件同一时刻发生"></a>2. 同时：两个或两个以上事件同一时刻发生</h3><h3 id="3-影响指令流水线性能的因素"><a href="#3-影响指令流水线性能的因素" class="headerlink" title="3. 影响指令流水线性能的因素:"></a>3. 影响指令流水线性能的因素:</h3></li>
+<li>结构相关: 不同指令争用同一功能部件产生资源冲突使指令流水出现停顿，</li>
+<li>数据相关: 不同指令因重叠操作，可能改变操作数的 读/写 访问顺序    后推法、采用旁路技术</li>
+<li>控制相关: 由转移指令引起<h3 id="4-流水线性能"><a href="#4-流水线性能" class="headerlink" title="4. 流水线性能"></a>4. 流水线性能</h3></li>
+<li>吞吐率: 单位时间内 流水线所完成指令 或输出结果的数量</li>
+<li>加速比: m 段的流水线的速度与等功能的非流水线的速度之比</li>
+<li>效率: 流水线中各功能段的 利用率<h2 id="五、中断系统"><a href="#五、中断系统" class="headerlink" title="五、中断系统"></a>五、中断系统</h2><h3 id="1-中断判优逻辑、（硬件排队、软件排队）"><a href="#1-中断判优逻辑、（硬件排队、软件排队）" class="headerlink" title="1. 中断判优逻辑、（硬件排队、软件排队）"></a>1. 中断判优逻辑、（硬件排队、软件排队）</h3><h3 id="2-中断响应"><a href="#2-中断响应" class="headerlink" title="2. 中断响应"></a>2. 中断响应</h3></li>
+<li>响应中断的条件：允许中断触发器 EINT = 1</li>
+<li>响应中断的 时间：指令执行周期结束时刻由CPU发查询信号</li>
+<li>中断隐指令<ul>
+<li>1.保护程序断点</li>
+<li>2.寻找服务程序入口地址</li>
+<li>3.硬件关中断</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8Bcpu/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我的博客新旅程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
