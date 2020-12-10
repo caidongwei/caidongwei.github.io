@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | 个人博客</title>
+  <title>css技巧(2. 文本省略之text-overflow: ellipsis) | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="引言：对于页面布局中，可能需要对于较长的文本进行省略，可能是单行文本，也有可能是多行文本。之前也有用过，但有时候也会老是忘记，所以把一些常用的属性记录下来。  单行文本省略123456p &amp;#123;  width: 100px;  text-overflow: ellipsis;   &#x2F;&#x2F; 溢出后省略的样式    overflow: hidden;  white-space:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css技巧(2. 文本省略之text-overflow: ellipsis)">
+<meta property="og:url" content="http://yoursite.com/2020/12/11/css%E6%8A%80%E5%B7%A7-2-%E6%96%87%E6%9C%AC%E7%9C%81%E7%95%A5%E4%B9%8Btext-overflow-ellipsis/index.html">
 <meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="引言：对于页面布局中，可能需要对于较长的文本进行省略，可能是单行文本，也有可能是多行文本。之前也有用过，但有时候也会老是忘记，所以把一些常用的属性记录下来。  单行文本省略123456p &amp;#123;  width: 100px;  text-overflow: ellipsis;   &#x2F;&#x2F; 溢出后省略的样式    overflow: hidden;  white-space:">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/11/rke3nS.png">
+<meta property="article:published_time" content="2020-12-10T16:47:56.000Z">
+<meta property="article:modified_time" content="2020-12-10T17:14:48.862Z">
 <meta property="article:author" content="Alan_C">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/11/rke3nS.png">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -149,211 +155,165 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-css技巧-2-文本省略之text-overflow-ellipsis" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      css技巧(2. 文本省略之text-overflow: ellipsis)
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/11/css%E6%8A%80%E5%B7%A7-2-%E6%96%87%E6%9C%AC%E7%9C%81%E7%95%A5%E4%B9%8Btext-overflow-ellipsis/" class="archive-article-date">
+
+        
+        <a href="/2020/12/11/css%E6%8A%80%E5%B7%A7-2-%E6%96%87%E6%9C%AC%E7%9C%81%E7%95%A5%E4%B9%8Btext-overflow-ellipsis/" class="archive-article-date">
   	<time datetime="2020-12-10T16:47:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-11</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/11/css%E6%8A%80%E5%B7%A7-2-%E6%96%87%E6%9C%AC%E7%9C%81%E7%95%A5%E4%B9%8Btext-overflow-ellipsis/">css技巧(2. 文本省略之text-overflow: ellipsis)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><h3 id="对于页面布局中，可能需要对于较长的文本进行省略，可能是单行文本，也有可能是多行文本。之前也有用过，但有时候也会老是忘记，所以把一些常用的属性记录下来。"><a href="#对于页面布局中，可能需要对于较长的文本进行省略，可能是单行文本，也有可能是多行文本。之前也有用过，但有时候也会老是忘记，所以把一些常用的属性记录下来。" class="headerlink" title="对于页面布局中，可能需要对于较长的文本进行省略，可能是单行文本，也有可能是多行文本。之前也有用过，但有时候也会老是忘记，所以把一些常用的属性记录下来。"></a>对于页面布局中，可能需要对于较长的文本进行省略，可能是单行文本，也有可能是多行文本。之前也有用过，但有时候也会老是忘记，所以把一些常用的属性记录下来。</h3><hr>
+<ol>
+<li>单行文本省略<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">  width: 100px;</span><br><span class="line">  text-overflow: ellipsis;   &#x2F;&#x2F; 溢出后省略的样式  </span><br><span class="line">  overflow: hidden;</span><br><span class="line">  white-space: nowrap;       &#x2F;&#x2F; 一行显示</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+text-overflow：兼容性<br><img src="https://s3.ax1x.com/2020/12/11/rke3nS.png" alt=""></li>
+<li>多行文本省略</li>
+</ol>
+<ul>
+<li>支持webkit内核浏览器、移动端<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">  width: 100px;</span><br><span class="line">  height: 60px;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  display: -webkit-box;</span><br><span class="line">  -webkit-line-clamp: 2;      &#x2F;&#x2F;超过几行省略</span><br><span class="line">  -webkit-box-orient: vertical;    &#x2F;&#x2F; 垂直排布</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>其他浏览器实现：js<pre><code></code></pre></li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/12/11/css%E6%8A%80%E5%B7%A7-2-%E6%96%87%E6%9C%AC%E7%9C%81%E7%95%A5%E4%B9%8Btext-overflow-ellipsis/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/11/vue-cli3-%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-12-10T16:27:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/12/11/vue-cli3-%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue-cli3 项目优化</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/11/vue-cli3-%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/">vue-cli3 项目优化</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/08/css%E6%8A%80%E5%B7%A7-1-%E6%B0%B4%E5%B9%B3%E3%80%81%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80/" class="archive-article-date">
-  	<time datetime="2020-12-08T15:48:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/08/css%E6%8A%80%E5%B7%A7-1-%E6%B0%B4%E5%B9%B3%E3%80%81%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80/">css技巧(1.水平、垂直居中布局)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/24/python%E4%B9%8Bscrapy-%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-  	<time datetime="2020-03-24T14:44:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/24/python%E4%B9%8Bscrapy-%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/">python之scrapy(一、环境部署)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8Bcpu/" class="archive-article-date">
-  	<time datetime="2020-03-22T13:44:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8Bcpu/">计算机组成原理之cpu</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/25/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%97%85%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-02-24T16:13:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/25/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%97%85%E7%A8%8B/">我的博客新旅程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/24/hello-world/" class="archive-article-date">
-  	<time datetime="2020-02-24T15:42:12.046Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/24/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -376,8 +336,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
