@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | 个人博客</title>
+  <title>vue-cli3 项目优化 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="引言：vue-cli3 打包代码后查看webpack报告： 1npm install webpack-bundle-analyzer -D 123config    .plugin(&#39;webpack-bundle-analyzer&#39;)    .use(require(&#39;webpack-bundle-analyzer&#39;).BundleAnalyzerPlugin) 1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-cli3 项目优化">
+<meta property="og:url" content="http://yoursite.com/2020/12/11/vue-cli3-%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="引言：vue-cli3 打包代码后查看webpack报告： 1npm install webpack-bundle-analyzer -D 123config    .plugin(&#39;webpack-bundle-analyzer&#39;)    .use(require(&#39;webpack-bundle-analyzer&#39;).BundleAnalyzerPlugin) 1">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/12/eee2a8cf2ed18eeb.png">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/12/2809d4f071b65b28.png">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/12/739fa0ad2c99a021.png">
+<meta property="article:published_time" content="2020-12-10T16:27:30.000Z">
+<meta property="article:modified_time" content="2020-12-10T16:28:20.474Z">
 <meta property="article:author" content="Alan_C">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ftp.bmp.ovh/imgs/2020/12/eee2a8cf2ed18eeb.png">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -149,184 +157,174 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-vue-cli3-项目优化" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      vue-cli3 项目优化
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/11/vue-cli3-%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/" class="archive-article-date">
+
+        
+        <a href="/2020/12/11/vue-cli3-%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/" class="archive-article-date">
   	<time datetime="2020-12-10T16:27:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-11</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/11/vue-cli3-%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/">vue-cli3 项目优化</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><p>vue-cli3 打包代码后查看webpack报告：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack-bundle-analyzer -D</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">config</span><br><span class="line">    .plugin(&#39;webpack-bundle-analyzer&#39;)</span><br><span class="line">    .use(require(&#39;webpack-bundle-analyzer&#39;).BundleAnalyzerPlugin)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run serve 或者npm run build</span><br></pre></td></tr></table></figure>
+<p>生成报告默认为8888端口（切勿有端口冲突）<br><img src="https://ftp.bmp.ovh/imgs/2020/12/eee2a8cf2ed18eeb.png" alt=""></p>
+<h2 id="1-gzip压缩"><a href="#1-gzip压缩" class="headerlink" title="1. gzip压缩"></a>1. gzip压缩</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install compression-webpack-plugin -D</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const CompressionPlugin &#x3D; require(&#39;compression-webpack-plugin&#39;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; gzip压缩</span><br><span class="line">    const productionGzipExtensions &#x3D; [&#39;html&#39;, &#39;js&#39;, &#39;css&#39;]</span><br><span class="line">    config.plugins.push(</span><br><span class="line">      new CompressionPlugin(&#123;</span><br><span class="line">          algorithm: &#39;gzip&#39;,</span><br><span class="line">          test: new RegExp(</span><br><span class="line">              &#39;\\.(&#39; + productionGzipExtensions.join(&#39;|&#39;) + &#39;)$&#39;</span><br><span class="line">          ),</span><br><span class="line">          threshold: 10240, &#x2F;&#x2F; 只有大小大于该值的资源会被处理 10240</span><br><span class="line">          minRatio: 0.8, &#x2F;&#x2F; 只有压缩率小于这个值的资源才会被处理</span><br><span class="line">          deleteOriginalAssets: true &#x2F;&#x2F; 删除原文件</span><br><span class="line">      &#125;)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<p>nginx 开启gzip:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">  location &#x2F; &#123;</span><br><span class="line">    root   F:&#x2F;nginx&#x2F;html&#x2F;southgz;</span><br><span class="line">    index  index.html index.htm;</span><br><span class="line">    gzip on;</span><br><span class="line">    gzip_disable &quot;msie6&quot;;</span><br><span class="line">    gzip_vary on;</span><br><span class="line">    gzip_static on;</span><br><span class="line">    gzip_proxied any;</span><br><span class="line">    gzip_comp_level 6;</span><br><span class="line">    gzip_buffers 16 8k;</span><br><span class="line">    gzip_http_version 1.1;</span><br><span class="line">    gzip_types text&#x2F;plain text&#x2F;css application&#x2F;json application&#x2F;x-javascript text&#x2F;xml</span><br><span class="line">    application&#x2F;xml application&#x2F;xml+rss text&#x2F;javascript image&#x2F;jpeg image&#x2F;gif image&#x2F;png image&#x2F;jpg;</span><br><span class="line"></span><br><span class="line">    error_page 404 &#x2F;index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-代码压缩"><a href="#2-代码压缩" class="headerlink" title="2. 代码压缩"></a>2. 代码压缩</h2><ul>
+<li>安装terser-webpack-plugin: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install terser-webpack-plugin -D</span><br></pre></td></tr></table></figure></li>
+<li>引入TerserPlugin:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">const TerserPlugin &#x3D; require(&#39;terser-webpack-plugin&#39;)</span><br><span class="line"></span><br><span class="line">configureWebpack: (config) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; 生产环境下</span><br><span class="line">  if (process.env.NODE_ENV &#x3D;&#x3D;&#x3D; &#39;production&#39;) &#123;</span><br><span class="line">    config.optimization &#x3D; &#123;</span><br><span class="line">      minimize: [new TerserPlugin(</span><br><span class="line">        &#123;</span><br><span class="line">          parallel: 4,</span><br><span class="line">          terserOptions: &#123;</span><br><span class="line">            compress: &#123;</span><br><span class="line">              &#x2F;&#x2F; 去除debug、console</span><br><span class="line">              warnings: true,</span><br><span class="line">              drop_debugger: true,</span><br><span class="line">              drop_console: true</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      )]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; es6 解析，兼容IE</span><br><span class="line">  config.entry.app &#x3D; [&quot;babel-polyfill&quot;, &quot;.&#x2F;src&#x2F;main.js&quot;]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="3-图片压缩"><a href="#3-图片压缩" class="headerlink" title="3. 图片压缩"></a>3. 图片压缩</h2></li>
+<li>安装image-webpack-loader<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install image-webpack-loader -D</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack: config &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;压缩图片 start&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">  config.module.rule(&#39;images&#39;)</span><br><span class="line">    .test(&#x2F;\.(png|jpe?g|gif|svg)(\?.*)?$&#x2F;)</span><br><span class="line">    .use(&#39;image-webpack-loader&#39;)</span><br><span class="line">    .loader(&#39;image-webpack-loader&#39;)</span><br><span class="line">    .options(&#123; bypassOnDebug: true &#125;)</span><br><span class="line">  &#x2F;&#x2F; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;压缩图片 end&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-公共代码抽离"><a href="#4-公共代码抽离" class="headerlink" title="4. 公共代码抽离"></a>4. 公共代码抽离</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 公共代码抽离</span><br><span class="line">    config.optimization &#x3D; &#123;</span><br><span class="line">        splitChunks: &#123;</span><br><span class="line">            cacheGroups: &#123;</span><br><span class="line">                vendor: &#123;</span><br><span class="line">                    chunks: &#39;all&#39;,</span><br><span class="line">                    test: &#x2F;node_modules&#x2F;,</span><br><span class="line">                    name: &#39;vendor&#39;,</span><br><span class="line">                    minChunks: 1,</span><br><span class="line">                    maxInitialRequests: 5,</span><br><span class="line">                    minSize: 0,</span><br><span class="line">                    priority: 100</span><br><span class="line">                &#125;,</span><br><span class="line">                common: &#123;</span><br><span class="line">                    chunks: &#39;all&#39;,</span><br><span class="line">                    test: &#x2F;[\\&#x2F;]src[\\&#x2F;]js[\\&#x2F;]&#x2F;,</span><br><span class="line">                    name: &#39;common&#39;,</span><br><span class="line">                    minChunks: 2,</span><br><span class="line">                    maxInitialRequests: 5,</span><br><span class="line">                    minSize: 0,</span><br><span class="line">                    priority: 60</span><br><span class="line">                &#125;,</span><br><span class="line">                styles: &#123;</span><br><span class="line">                    name: &#39;styles&#39;,</span><br><span class="line">                    test: &#x2F;\.(sa|sc|c)ss$&#x2F;,</span><br><span class="line">                    chunks: &#39;all&#39;,</span><br><span class="line">                    enforce: true</span><br><span class="line">                &#125;,</span><br><span class="line">                runtimeChunk: &#123;</span><br><span class="line">                    name: &#39;manifest&#39;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-静态资源cdn"><a href="#5-静态资源cdn" class="headerlink" title="5. 静态资源cdn"></a>5. 静态资源cdn</h2><h2 id="6-完整vue-config-js"><a href="#6-完整vue-config-js" class="headerlink" title="6. 完整vue.config.js"></a>6. 完整vue.config.js</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line">  &#x2F;&#x2F; 引入gzip</span><br><span class="line">const CompressionPlugin &#x3D; require(&#39;compression-webpack-plugin&#39;)</span><br><span class="line">&#x2F;&#x2F; 引入代码压缩</span><br><span class="line">const TerserPlugin &#x3D; require(&#39;terser-webpack-plugin&#39;)</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  productionSourceMap: false,</span><br><span class="line">  chainWebpack: config &#x3D;&gt; &#123;</span><br><span class="line">    &#x2F;&#x2F; 这里是对环境的配置，不同环境对应不同的BASE_URL，以便axios的请求地址不同</span><br><span class="line">    config.plugin(&#39;define&#39;).tap(args &#x3D;&gt; &#123;</span><br><span class="line">      args[0][&#39;process.env&#39;].BASE_URL &#x3D; JSON.stringify(process.env.BASE_URL)</span><br><span class="line">      return args</span><br><span class="line">    &#125;)</span><br><span class="line">    config.plugin(&#39;preload&#39;)</span><br><span class="line">    &#x2F;&#x2F; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;压缩图片 start&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    config.module.rule(&#39;images&#39;)</span><br><span class="line">      .test(&#x2F;\.(png|jpe?g|gif|svg)(\?.*)?$&#x2F;)</span><br><span class="line">      .use(&#39;image-webpack-loader&#39;)</span><br><span class="line">      .loader(&#39;image-webpack-loader&#39;)</span><br><span class="line">      .options(&#123; bypassOnDebug: true &#125;)</span><br><span class="line">    &#x2F;&#x2F; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;压缩图片 end&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x2F;&#x2F; webpack 打包生成报告</span><br><span class="line">    config</span><br><span class="line">      .plugin(&#39;webpack-bundle-analyzer&#39;)</span><br><span class="line">      .use(require(&#39;webpack-bundle-analyzer&#39;).BundleAnalyzerPlugin)</span><br><span class="line">  &#125;,</span><br><span class="line">  transpileDependencies: [</span><br><span class="line">    &#39;element-ui&#39;,  &#x2F;&#x2F; 指定对第三方组件也进行babel-polyfill处理</span><br><span class="line">    &#39;vue-baidu-map&#39;</span><br><span class="line">  ],</span><br><span class="line">  configureWebpack: (config) &#x3D;&gt; &#123;</span><br><span class="line">    &#x2F;&#x2F; 生产环境下</span><br><span class="line">    if (process.env.NODE_ENV &#x3D;&#x3D;&#x3D; &#39;production&#39;) &#123;</span><br><span class="line">      &#x2F;&#x2F; gzip压缩</span><br><span class="line">      const productionGzipExtensions &#x3D; [&#39;html&#39;, &#39;js&#39;, &#39;css&#39;]</span><br><span class="line">      config.plugins.push(</span><br><span class="line">        new CompressionPlugin(&#123;</span><br><span class="line">            algorithm: &#39;gzip&#39;,</span><br><span class="line">            test: new RegExp(</span><br><span class="line">                &#39;\\.(&#39; + productionGzipExtensions.join(&#39;|&#39;) + &#39;)$&#39;</span><br><span class="line">            ),</span><br><span class="line">            threshold: 10240, &#x2F;&#x2F; 只有大小大于该值的资源会被处理 10240</span><br><span class="line">            minRatio: 0.8, &#x2F;&#x2F; 只有压缩率小于这个值的资源才会被处理</span><br><span class="line">            deleteOriginalAssets: true &#x2F;&#x2F; 删除原文件</span><br><span class="line">        &#125;)</span><br><span class="line">      )</span><br><span class="line">      config.optimization &#x3D; &#123;</span><br><span class="line">        minimize: [new TerserPlugin(</span><br><span class="line">          &#123;</span><br><span class="line">            parallel: 4,</span><br><span class="line">            terserOptions: &#123;</span><br><span class="line">              compress: &#123;</span><br><span class="line">                &#x2F;&#x2F; 去除debug、console</span><br><span class="line">                warnings: true,</span><br><span class="line">                drop_debugger: true,</span><br><span class="line">                drop_console: true</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        )]</span><br><span class="line">      &#125;</span><br><span class="line">      &#x2F;&#x2F; 公共代码抽离</span><br><span class="line">      config.optimization &#x3D; &#123;</span><br><span class="line">          splitChunks: &#123;</span><br><span class="line">              cacheGroups: &#123;</span><br><span class="line">                  vendor: &#123;</span><br><span class="line">                      chunks: &#39;all&#39;,</span><br><span class="line">                      test: &#x2F;node_modules&#x2F;,</span><br><span class="line">                      name: &#39;vendor&#39;,</span><br><span class="line">                      minChunks: 1,</span><br><span class="line">                      maxInitialRequests: 5,</span><br><span class="line">                      minSize: 0,</span><br><span class="line">                      priority: 100</span><br><span class="line">                  &#125;,</span><br><span class="line">                  common: &#123;</span><br><span class="line">                      chunks: &#39;all&#39;,</span><br><span class="line">                      test: &#x2F;[\\&#x2F;]src[\\&#x2F;]js[\\&#x2F;]&#x2F;,</span><br><span class="line">                      name: &#39;common&#39;,</span><br><span class="line">                      minChunks: 2,</span><br><span class="line">                      maxInitialRequests: 5,</span><br><span class="line">                      minSize: 0,</span><br><span class="line">                      priority: 60</span><br><span class="line">                  &#125;,</span><br><span class="line">                  styles: &#123;</span><br><span class="line">                      name: &#39;styles&#39;,</span><br><span class="line">                      test: &#x2F;\.(sa|sc|c)ss$&#x2F;,</span><br><span class="line">                      chunks: &#39;all&#39;,</span><br><span class="line">                      enforce: true</span><br><span class="line">                  &#125;,</span><br><span class="line">                  runtimeChunk: &#123;</span><br><span class="line">                      name: &#39;manifest&#39;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; es6 解析，兼容IE</span><br><span class="line">    config.entry.app &#x3D; [&quot;babel-polyfill&quot;, &quot;.&#x2F;src&#x2F;main.js&quot;]</span><br><span class="line">  &#125;,</span><br><span class="line">  lintOnSave:false,</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    port: 8083,</span><br><span class="line">    overlay: &#123;</span><br><span class="line">      warnings: false,</span><br><span class="line">      errors: false</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  publicPath: process.env.NODE_ENV &#x3D;&#x3D;&#x3D; &#39;production&#39;</span><br><span class="line">    ? &#39;&#x2F;&#39;</span><br><span class="line">    : &#39;&#x2F;&#39;,</span><br><span class="line">  assetsDir: &#39;.&#39;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7-最后体积大小"><a href="#7-最后体积大小" class="headerlink" title="7. 最后体积大小"></a>7. 最后体积大小</h2>css 目录：<img src="https://ftp.bmp.ovh/imgs/2020/12/2809d4f071b65b28.png" alt=""><br>js 目录：<img src="https://ftp.bmp.ovh/imgs/2020/12/739fa0ad2c99a021.png" alt=""></li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/12/11/vue-cli3-%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/08/css%E6%8A%80%E5%B7%A7-1-%E6%B0%B4%E5%B9%B3%E3%80%81%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80/" class="archive-article-date">
-  	<time datetime="2020-12-08T15:48:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/12/08/css%E6%8A%80%E5%B7%A7-1-%E6%B0%B4%E5%B9%B3%E3%80%81%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">css技巧(1.水平、垂直居中布局)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/08/css%E6%8A%80%E5%B7%A7-1-%E6%B0%B4%E5%B9%B3%E3%80%81%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80/">css技巧(1.水平、垂直居中布局)</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/24/python%E4%B9%8Bscrapy-%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-  	<time datetime="2020-03-24T14:44:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/24/python%E4%B9%8Bscrapy-%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/">python之scrapy(一、环境部署)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8Bcpu/" class="archive-article-date">
-  	<time datetime="2020-03-22T13:44:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8Bcpu/">计算机组成原理之cpu</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/25/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%97%85%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-02-24T16:13:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/25/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%97%85%E7%A8%8B/">我的博客新旅程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/24/hello-world/" class="archive-article-date">
-  	<time datetime="2020-02-24T15:42:12.046Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/24/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -349,8 +347,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
