@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 个人博客</title>
+  <title>css技巧(3. 你不知道的offsetWidth、offsetHeight等) | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="引言对于一个dom元素，除了我们熟知的盒子模型（width、height、padding、border、margin），对于有时候我们需要获取元素所在位置以及对元素位置进行操作。这时候就需要我们对元素clientWidth、offset(width、left、height、right)、window窗口的innerWidth、innerHeight等做一次简单了解1. clientWidthcli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css技巧(3. 你不知道的offsetWidth、offsetHeight等)">
+<meta property="og:url" content="http://yoursite.com/2020/12/13/css%E6%8A%80%E5%B7%A7-3-%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84offsetWidth%E3%80%81offsetHeight%E7%AD%89/index.html">
 <meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="引言对于一个dom元素，除了我们熟知的盒子模型（width、height、padding、border、margin），对于有时候我们需要获取元素所在位置以及对元素位置进行操作。这时候就需要我们对元素clientWidth、offset(width、left、height、right)、window窗口的innerWidth、innerHeight等做一次简单了解1. clientWidthcli">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/14/rms5Ix.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/14/rmytFx.png">
+<meta property="article:published_time" content="2020-12-13T15:46:59.000Z">
+<meta property="article:modified_time" content="2020-12-13T16:12:46.012Z">
 <meta property="article:author" content="Alan_C">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/14/rms5Ix.png">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -149,238 +156,159 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-css技巧-3-你不知道的offsetWidth、offsetHeight等" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      css技巧(3. 你不知道的offsetWidth、offsetHeight等)
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/13/css%E6%8A%80%E5%B7%A7-3-%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84offsetWidth%E3%80%81offsetHeight%E7%AD%89/" class="archive-article-date">
+
+        
+        <a href="/2020/12/13/css%E6%8A%80%E5%B7%A7-3-%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84offsetWidth%E3%80%81offsetHeight%E7%AD%89/" class="archive-article-date">
   	<time datetime="2020-12-13T15:46:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/13/css%E6%8A%80%E5%B7%A7-3-%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84offsetWidth%E3%80%81offsetHeight%E7%AD%89/">css技巧(3. 你不知道的offsetWidth、offsetHeight等)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><h3 id="对于一个dom元素，除了我们熟知的盒子模型（width、height、padding、border、margin），对于有时候我们需要获取元素所在位置以及对元素位置进行操作。这时候就需要我们对元素clientWidth、offset-width、left、height、right-、window窗口的innerWidth、innerHeight等做一次简单了解"><a href="#对于一个dom元素，除了我们熟知的盒子模型（width、height、padding、border、margin），对于有时候我们需要获取元素所在位置以及对元素位置进行操作。这时候就需要我们对元素clientWidth、offset-width、left、height、right-、window窗口的innerWidth、innerHeight等做一次简单了解" class="headerlink" title="对于一个dom元素，除了我们熟知的盒子模型（width、height、padding、border、margin），对于有时候我们需要获取元素所在位置以及对元素位置进行操作。这时候就需要我们对元素clientWidth、offset(width、left、height、right)、window窗口的innerWidth、innerHeight等做一次简单了解"></a>对于一个dom元素，除了我们熟知的盒子模型（width、height、padding、border、margin），对于有时候我们需要获取元素所在位置以及对元素位置进行操作。这时候就需要我们对元素clientWidth、offset(width、left、height、right)、window窗口的innerWidth、innerHeight等做一次简单了解</h3><h3 id="1-clientWidth"><a href="#1-clientWidth" class="headerlink" title="1. clientWidth"></a>1. clientWidth</h3><p>clientWidth = width + 左右padding<br>MDN解释：<br><img src="https://s3.ax1x.com/2020/12/14/rms5Ix.png" alt=""><br>这段话意思就是: 只有块元素以及含有css的dom元素才有值。它包括width+左右padding，但不包括border、margin、以及scroll滚动条</p>
+<h3 id="2-offsetWidth"><a href="#2-offsetWidth" class="headerlink" title="2. offsetWidth"></a>2. offsetWidth</h3><p>offsetWidth = width + 左右padding + 左右border宽度 + 垂直滚动条宽度<br><img src="https://s3.ax1x.com/2020/12/14/rmytFx.png" alt=""><br>这个HTMLElement.offsetWidth只读属性以整数形式返回元素的布局宽度。</p>
+<p>通常，offsetWidth是元素CSS宽度的像素度量，包括任何边框、填充和垂直滚动条（如果呈现）。它不包括伪元素的宽度，例如：：before或：：after。</p>
+<p>如果元素被隐藏（例如，通过设置样式.显示在元素或其祖先之一上返回“none”），则返回0。</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/12/13/css%E6%8A%80%E5%B7%A7-3-%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84offsetWidth%E3%80%81offsetHeight%E7%AD%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/11/css%E6%8A%80%E5%B7%A7-2-%E6%96%87%E6%9C%AC%E7%9C%81%E7%95%A5%E4%B9%8Btext-overflow-ellipsis/" class="archive-article-date">
-  	<time datetime="2020-12-10T16:47:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/12/11/css%E6%8A%80%E5%B7%A7-2-%E6%96%87%E6%9C%AC%E7%9C%81%E7%95%A5%E4%B9%8Btext-overflow-ellipsis/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">css技巧(2. 文本省略之text-overflow: ellipsis)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/11/css%E6%8A%80%E5%B7%A7-2-%E6%96%87%E6%9C%AC%E7%9C%81%E7%95%A5%E4%B9%8Btext-overflow-ellipsis/">css技巧(2. 文本省略之text-overflow: ellipsis)</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/11/vue-cli3-%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-12-10T16:27:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/11/vue-cli3-%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/">vue-cli3 项目优化</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/08/css%E6%8A%80%E5%B7%A7-1-%E6%B0%B4%E5%B9%B3%E3%80%81%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80/" class="archive-article-date">
-  	<time datetime="2020-12-08T15:48:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/08/css%E6%8A%80%E5%B7%A7-1-%E6%B0%B4%E5%B9%B3%E3%80%81%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80/">css技巧(1.水平、垂直居中布局)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/24/python%E4%B9%8Bscrapy-%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-  	<time datetime="2020-03-24T14:44:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/24/python%E4%B9%8Bscrapy-%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/">python之scrapy(一、环境部署)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8Bcpu/" class="archive-article-date">
-  	<time datetime="2020-03-22T13:44:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8Bcpu/">计算机组成原理之cpu</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/25/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%97%85%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-02-24T16:13:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/25/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%97%85%E7%A8%8B/">我的博客新旅程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/24/hello-world/" class="archive-article-date">
-  	<time datetime="2020-02-24T15:42:12.046Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/24/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -403,8 +331,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
