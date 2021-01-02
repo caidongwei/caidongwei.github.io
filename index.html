@@ -151,6 +151,209 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-前端工具函数（二）之文件下载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B9%8B%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">前端工具函数（二）之文件下载</a>
+    </h1>
+  
+
+        
+        <a href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B9%8B%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" class="archive-article-date">
+  	<time datetime="2021-01-02T15:09:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><h4 id="前端常会用到文件下载功能，不同浏览器可能有不同的形式。结合项目文件下载功能，记录一下需要注意的地方"><a href="#前端常会用到文件下载功能，不同浏览器可能有不同的形式。结合项目文件下载功能，记录一下需要注意的地方" class="headerlink" title="前端常会用到文件下载功能，不同浏览器可能有不同的形式。结合项目文件下载功能，记录一下需要注意的地方"></a>前端常会用到文件下载功能，不同浏览器可能有不同的形式。结合项目文件下载功能，记录一下需要注意的地方</h4><h4 id="1-使用文件流（new-Blob）进行下载"><a href="#1-使用文件流（new-Blob）进行下载" class="headerlink" title="1. 使用文件流（new Blob）进行下载"></a>1. 使用文件流（new Blob）进行下载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"> import axios from &#39;axios&#39;</span><br><span class="line">export default class DownFile &#123;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * @param &#123;String&#125; filename 文件名</span><br><span class="line">   * @param &#123;String&#125; url 文件地址</span><br><span class="line">   *&#x2F;</span><br><span class="line">  constructor(filename &#x3D; &#39;&#39;, url &#x3D; &#39;&#39;) &#123;</span><br><span class="line">    this.filename &#x3D; filename;</span><br><span class="line">    this.url &#x3D; url;</span><br><span class="line">  &#125;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 根据url提取文件后缀</span><br><span class="line">   * @param &#123;String&#125; url 文件路径</span><br><span class="line">   * @param &#123;String&#125; lastStr 文件路径后缀</span><br><span class="line">   *&#x2F;</span><br><span class="line">  getSuffix &#x3D; (url) &#x3D;&gt; &#123;</span><br><span class="line">    &#x2F;&#x2F; 获取&#39;.&#39;下标</span><br><span class="line">    const strIndex &#x3D; url.lastIndexOf(&#39;.&#39;);</span><br><span class="line">    &#x2F;&#x2F; 返回后缀</span><br><span class="line">    const lastStr &#x3D; url.substring(strIndex + 1, url.length).toLowerCase();</span><br><span class="line">    return lastStr;</span><br><span class="line">  &#125;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 根据文件后缀获取mime type</span><br><span class="line">   * @param &#123;String&#125; url 文件路径</span><br><span class="line">   * @param &#123;String&#125; suffixObj[lastStr] mime类型</span><br><span class="line">   *&#x2F;</span><br><span class="line">  getFileSuffix &#x3D; (url) &#x3D;&gt; &#123;</span><br><span class="line">    const lastStr &#x3D; this.getSuffix(url);</span><br><span class="line">    let mimeObj &#x3D; &#123;</span><br><span class="line">      pdf: &#39;application&#x2F;pdf&#39;,</span><br><span class="line">      mp4: &#39;video&#x2F;x-msvideo&#39;,</span><br><span class="line">      txt: &#39;text&#x2F;plain&#39;,</span><br><span class="line">      mov: &#39;video&#x2F;x-msvideo&#39;,</span><br><span class="line">      png: &#39;image&#x2F;png&#39;,</span><br><span class="line">      jpg: &#39;image&#x2F;jpeg&#39;,</span><br><span class="line">      jpeg: &#39;image&#x2F;jpeg&#39;,</span><br><span class="line">      xls: &#39;application&#x2F;msexcel&#39;,</span><br><span class="line">      doc: &#39;application&#x2F;msword&#39;,</span><br><span class="line">      docx: &#39;application&#x2F;msword&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    return mimeObj[lastStr];</span><br><span class="line">  &#125;</span><br><span class="line">  getFile &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    const mimeType &#x3D; this.getFileSuffix(this.url);</span><br><span class="line">    const type &#x3D; this.getSuffix(this.url);</span><br><span class="line">    axios(&#123;</span><br><span class="line">      method: &#39;get&#39;,</span><br><span class="line">      url: process.env.BASE_URL + this.url,</span><br><span class="line">    &#125;).then(res &#x3D;&gt; &#123;</span><br><span class="line">      let blob &#x3D; res.data;</span><br><span class="line">      &#x2F;&#x2F; 兼容IE</span><br><span class="line">      if (window.navigator.msSaveOrOpenBlob) &#123;</span><br><span class="line">        &#x2F;&#x2F; 创建blob对象，设置文件mime类型</span><br><span class="line">        let blobIE &#x3D; new Blob([blob], &#123; type: &#96;$&#123;mimeType&#125;&#96; &#125;);</span><br><span class="line">        &#x2F;&#x2F; IE下载需要拼接文件后缀</span><br><span class="line">        navigator.msSaveBlob(blobIE, this.filename + &#39;.&#39; + type);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        const link &#x3D; document.createElement(&#39;a&#39;);</span><br><span class="line">        const body &#x3D; document.querySelector(&#39;body&#39;);</span><br><span class="line"></span><br><span class="line">        let binaryData &#x3D; [];</span><br><span class="line">        binaryData.push(blob);</span><br><span class="line">        if(!window.URL.createObjectURL) &#123;</span><br><span class="line">          alert(&#39;当前浏览器版本过低，请更换谷歌浏览器或升级浏览器版本&#39;);</span><br><span class="line">          return;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">          link.href &#x3D; window.URL.createObjectURL(new Blob(binaryData, &#123; type: &#96;$&#123;type&#125;&#96; &#125;)); &#x2F;&#x2F; 创建对象url</span><br><span class="line">        &#125;</span><br><span class="line">        link.download &#x3D; this.filename;</span><br><span class="line">        &#x2F;&#x2F; fix Firefox</span><br><span class="line">        link.style.display &#x3D; &#39;none&#39;;</span><br><span class="line">        body.appendChild(link);</span><br><span class="line">        link.click();</span><br><span class="line">        body.removeChild(link);</span><br><span class="line">        window.URL.revokeObjectURL(link.href); &#x2F;&#x2F; 移除 URL.createObjectURL() 创建的 URL 对象</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>遇到的问题：</p>
+<ol>
+<li>因为是在本地发起一个请求，通过blob形式，如果文件过大，消耗的内存会比较多，造成下载卡顿。</li>
+<li>本地发起一个请求，只有请求响应才会进行下载，所以在用户体验上不好<h4 id="2-直接调用浏览器下载"><a href="#2-直接调用浏览器下载" class="headerlink" title="2. 直接调用浏览器下载"></a>2. 直接调用浏览器下载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 文件地址参数编码--兼容IE</span><br><span class="line">uriCode(str) &#123;</span><br><span class="line">  return window.encodeURIComponent(str)</span><br><span class="line">&#125;,</span><br><span class="line">&#x2F;&#x2F; 文件下载（浏览器）</span><br><span class="line">export const downloadFile &#x3D; (url) &#x3D;&gt; &#123;</span><br><span class="line">  let elemIF &#x3D; document.createElement(&quot;iframe&quot;);</span><br><span class="line">  elemIF.id &#x3D; &#39;iframe&#39;</span><br><span class="line">  elemIF.src &#x3D; url;</span><br><span class="line">  elemIF.style.display &#x3D; &quot;none&quot;;</span><br><span class="line">  document.body.appendChild(elemIF);</span><br><span class="line">  const timer &#x3D; setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">    document.body.removeChild(elemIF);</span><br><span class="line">    clearTimeout(timer)</span><br><span class="line">  &#125;, 2000)</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 文件下载</span><br><span class="line">download(item) &#123;</span><br><span class="line">  let url &#x3D; this.base_url + item.fileId + (&#39;?download&#x3D;true&amp;filename&#x3D;&#39; + this.uriCode(&#96;$&#123;item.name&#125;&#96;));</span><br><span class="line">  downloadFile(url)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+遇到的问题：</li>
+<li>IE浏览器下载如果文件名是中文名，IE跳转下载会找不到路径，所以如果有携带参数，参数要进行转码。</li>
+<li>采用a标签，火狐默认打开，所以采用创建iframe标签方式。创建完，文件下载完，记得移除标签，并且移除标签时候记得（setTimeout内才可以移除）</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B9%8B%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-前端工具函数（一）之深度克隆" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%EF%BC%88%E4%B8%80%EF%BC%89%E4%B9%8B%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/">前端工具函数（一）之深度克隆</a>
+    </h1>
+  
+
+        
+        <a href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%EF%BC%88%E4%B8%80%EF%BC%89%E4%B9%8B%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/" class="archive-article-date">
+  	<time datetime="2021-01-02T15:08:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><h4 id="对于前端而言，我们在项目中必然要使用一些工具函数，使用它们来为我们带来更好的开发效率。平常使用的工具函数除了自己封装简单的，另外一些比较常用的深度克隆、格式化函数等。虽然也理解，但如果自己手动写，还真的写不出来。所以一步一步，对于我们常用的函数进行深度剖析。"><a href="#对于前端而言，我们在项目中必然要使用一些工具函数，使用它们来为我们带来更好的开发效率。平常使用的工具函数除了自己封装简单的，另外一些比较常用的深度克隆、格式化函数等。虽然也理解，但如果自己手动写，还真的写不出来。所以一步一步，对于我们常用的函数进行深度剖析。" class="headerlink" title="对于前端而言，我们在项目中必然要使用一些工具函数，使用它们来为我们带来更好的开发效率。平常使用的工具函数除了自己封装简单的，另外一些比较常用的深度克隆、格式化函数等。虽然也理解，但如果自己手动写，还真的写不出来。所以一步一步，对于我们常用的函数进行深度剖析。"></a>对于前端而言，我们在项目中必然要使用一些工具函数，使用它们来为我们带来更好的开发效率。平常使用的工具函数除了自己封装简单的，另外一些比较常用的深度克隆、格式化函数等。虽然也理解，但如果自己手动写，还真的写不出来。所以一步一步，对于我们常用的函数进行深度剖析。</h4><h4 id="1-前端工具函数-一-之深度克隆（deepClone）"><a href="#1-前端工具函数-一-之深度克隆（deepClone）" class="headerlink" title="1. 前端工具函数(一)之深度克隆（deepClone）"></a>1. 前端工具函数(一)之深度克隆（deepClone）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">export default deepClone &#x3D; (source) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; 首先判断传入参数是否为空并且是否为object，抛出异常</span><br><span class="line">  if(!source || typeof source !&#x3D;&#x3D; &#39;object&#39;) &#123;</span><br><span class="line">    throw new Error(&#39;error arument&#39;)</span><br><span class="line">  &#125;</span><br><span class="line">  &#x2F;&#x2F; 判断source constructor指向</span><br><span class="line">  const targetObj &#x3D; source.constructor &#x3D;&#x3D;&#x3D; Array ? [] : &#123;&#125;</span><br><span class="line">  Object.keys(source).forEach(keys &#x3D;&gt; &#123;</span><br><span class="line">    if(source[keys] &amp;&amp; source[keys] &#x3D;&#x3D;&#x3D; &#39;object&#39;) &#123;</span><br><span class="line">      targetObj[keys] &#x3D; deepClone(source[keys])</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">      targetObj[keys] &#x3D; source[keys]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  return targetObj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>书写思路</li>
+<li>关键点：constructor</li>
+<li>关键点：Object.keys<br>Object.keys(obj)：输出key的数组</li>
+<li>递归思想</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%EF%BC%88%E4%B8%80%EF%BC%89%E4%B9%8B%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-前端工具函数之深度克隆" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E4%B9%8B%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/">前端工具函数之深度克隆</a>
+    </h1>
+  
+
+        
+        <a href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E4%B9%8B%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/" class="archive-article-date">
+  	<time datetime="2021-01-02T15:08:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E4%B9%8B%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-css技巧-3-你不知道的offsetWidth、offsetHeight等" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -683,81 +886,10 @@ text-overflow：兼容性<br><img src="https://s3.ax1x.com/2020/12/11/rke3nS.png
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/24/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/24/hello-world/" class="archive-article-date">
-  	<time datetime="2020-02-24T15:42:12.046Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/24/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -768,7 +900,7 @@ text-overflow：兼容性<br><img src="https://s3.ax1x.com/2020/12/11/rke3nS.png
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 Alan_C
+    		&copy; 2021 Alan_C
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

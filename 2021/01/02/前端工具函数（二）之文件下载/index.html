@@ -6,12 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 个人博客</title>
+  <title>前端工具函数（二）之文件下载 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="引言前端常会用到文件下载功能，不同浏览器可能有不同的形式。结合项目文件下载功能，记录一下需要注意的地方1. 使用文件流（new Blob）进行下载1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端工具函数（二）之文件下载">
+<meta property="og:url" content="http://yoursite.com/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B9%8B%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/index.html">
 <meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="引言前端常会用到文件下载功能，不同浏览器可能有不同的形式。结合项目文件下载功能，记录一下需要注意的地方1. 使用文件流（new Blob）进行下载1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768">
+<meta property="article:published_time" content="2021-01-02T15:09:03.000Z">
+<meta property="article:modified_time" content="2021-01-02T15:09:52.680Z">
 <meta property="article:author" content="Alan_C">
 <meta name="twitter:card" content="summary">
   
@@ -149,305 +153,163 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-前端工具函数（二）之文件下载" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      前端工具函数（二）之文件下载
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B9%8B%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" class="archive-article-date">
+
+        
+        <a href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B9%8B%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" class="archive-article-date">
   	<time datetime="2021-01-02T15:09:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-02</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B9%8B%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">前端工具函数（二）之文件下载</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%EF%BC%88%E4%B8%80%EF%BC%89%E4%B9%8B%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/" class="archive-article-date">
-  	<time datetime="2021-01-02T15:08:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%EF%BC%88%E4%B8%80%EF%BC%89%E4%B9%8B%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/">前端工具函数（一）之深度克隆</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E4%B9%8B%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/" class="archive-article-date">
-  	<time datetime="2021-01-02T15:08:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E4%B9%8B%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/">前端工具函数之深度克隆</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><h4 id="前端常会用到文件下载功能，不同浏览器可能有不同的形式。结合项目文件下载功能，记录一下需要注意的地方"><a href="#前端常会用到文件下载功能，不同浏览器可能有不同的形式。结合项目文件下载功能，记录一下需要注意的地方" class="headerlink" title="前端常会用到文件下载功能，不同浏览器可能有不同的形式。结合项目文件下载功能，记录一下需要注意的地方"></a>前端常会用到文件下载功能，不同浏览器可能有不同的形式。结合项目文件下载功能，记录一下需要注意的地方</h4><h4 id="1-使用文件流（new-Blob）进行下载"><a href="#1-使用文件流（new-Blob）进行下载" class="headerlink" title="1. 使用文件流（new Blob）进行下载"></a>1. 使用文件流（new Blob）进行下载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"> import axios from &#39;axios&#39;</span><br><span class="line">export default class DownFile &#123;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * @param &#123;String&#125; filename 文件名</span><br><span class="line">   * @param &#123;String&#125; url 文件地址</span><br><span class="line">   *&#x2F;</span><br><span class="line">  constructor(filename &#x3D; &#39;&#39;, url &#x3D; &#39;&#39;) &#123;</span><br><span class="line">    this.filename &#x3D; filename;</span><br><span class="line">    this.url &#x3D; url;</span><br><span class="line">  &#125;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 根据url提取文件后缀</span><br><span class="line">   * @param &#123;String&#125; url 文件路径</span><br><span class="line">   * @param &#123;String&#125; lastStr 文件路径后缀</span><br><span class="line">   *&#x2F;</span><br><span class="line">  getSuffix &#x3D; (url) &#x3D;&gt; &#123;</span><br><span class="line">    &#x2F;&#x2F; 获取&#39;.&#39;下标</span><br><span class="line">    const strIndex &#x3D; url.lastIndexOf(&#39;.&#39;);</span><br><span class="line">    &#x2F;&#x2F; 返回后缀</span><br><span class="line">    const lastStr &#x3D; url.substring(strIndex + 1, url.length).toLowerCase();</span><br><span class="line">    return lastStr;</span><br><span class="line">  &#125;</span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 根据文件后缀获取mime type</span><br><span class="line">   * @param &#123;String&#125; url 文件路径</span><br><span class="line">   * @param &#123;String&#125; suffixObj[lastStr] mime类型</span><br><span class="line">   *&#x2F;</span><br><span class="line">  getFileSuffix &#x3D; (url) &#x3D;&gt; &#123;</span><br><span class="line">    const lastStr &#x3D; this.getSuffix(url);</span><br><span class="line">    let mimeObj &#x3D; &#123;</span><br><span class="line">      pdf: &#39;application&#x2F;pdf&#39;,</span><br><span class="line">      mp4: &#39;video&#x2F;x-msvideo&#39;,</span><br><span class="line">      txt: &#39;text&#x2F;plain&#39;,</span><br><span class="line">      mov: &#39;video&#x2F;x-msvideo&#39;,</span><br><span class="line">      png: &#39;image&#x2F;png&#39;,</span><br><span class="line">      jpg: &#39;image&#x2F;jpeg&#39;,</span><br><span class="line">      jpeg: &#39;image&#x2F;jpeg&#39;,</span><br><span class="line">      xls: &#39;application&#x2F;msexcel&#39;,</span><br><span class="line">      doc: &#39;application&#x2F;msword&#39;,</span><br><span class="line">      docx: &#39;application&#x2F;msword&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    return mimeObj[lastStr];</span><br><span class="line">  &#125;</span><br><span class="line">  getFile &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    const mimeType &#x3D; this.getFileSuffix(this.url);</span><br><span class="line">    const type &#x3D; this.getSuffix(this.url);</span><br><span class="line">    axios(&#123;</span><br><span class="line">      method: &#39;get&#39;,</span><br><span class="line">      url: process.env.BASE_URL + this.url,</span><br><span class="line">    &#125;).then(res &#x3D;&gt; &#123;</span><br><span class="line">      let blob &#x3D; res.data;</span><br><span class="line">      &#x2F;&#x2F; 兼容IE</span><br><span class="line">      if (window.navigator.msSaveOrOpenBlob) &#123;</span><br><span class="line">        &#x2F;&#x2F; 创建blob对象，设置文件mime类型</span><br><span class="line">        let blobIE &#x3D; new Blob([blob], &#123; type: &#96;$&#123;mimeType&#125;&#96; &#125;);</span><br><span class="line">        &#x2F;&#x2F; IE下载需要拼接文件后缀</span><br><span class="line">        navigator.msSaveBlob(blobIE, this.filename + &#39;.&#39; + type);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        const link &#x3D; document.createElement(&#39;a&#39;);</span><br><span class="line">        const body &#x3D; document.querySelector(&#39;body&#39;);</span><br><span class="line"></span><br><span class="line">        let binaryData &#x3D; [];</span><br><span class="line">        binaryData.push(blob);</span><br><span class="line">        if(!window.URL.createObjectURL) &#123;</span><br><span class="line">          alert(&#39;当前浏览器版本过低，请更换谷歌浏览器或升级浏览器版本&#39;);</span><br><span class="line">          return;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">          link.href &#x3D; window.URL.createObjectURL(new Blob(binaryData, &#123; type: &#96;$&#123;type&#125;&#96; &#125;)); &#x2F;&#x2F; 创建对象url</span><br><span class="line">        &#125;</span><br><span class="line">        link.download &#x3D; this.filename;</span><br><span class="line">        &#x2F;&#x2F; fix Firefox</span><br><span class="line">        link.style.display &#x3D; &#39;none&#39;;</span><br><span class="line">        body.appendChild(link);</span><br><span class="line">        link.click();</span><br><span class="line">        body.removeChild(link);</span><br><span class="line">        window.URL.revokeObjectURL(link.href); &#x2F;&#x2F; 移除 URL.createObjectURL() 创建的 URL 对象</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>遇到的问题：</p>
+<ol>
+<li>因为是在本地发起一个请求，通过blob形式，如果文件过大，消耗的内存会比较多，造成下载卡顿。</li>
+<li>本地发起一个请求，只有请求响应才会进行下载，所以在用户体验上不好<h4 id="2-直接调用浏览器下载"><a href="#2-直接调用浏览器下载" class="headerlink" title="2. 直接调用浏览器下载"></a>2. 直接调用浏览器下载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 文件地址参数编码--兼容IE</span><br><span class="line">uriCode(str) &#123;</span><br><span class="line">  return window.encodeURIComponent(str)</span><br><span class="line">&#125;,</span><br><span class="line">&#x2F;&#x2F; 文件下载（浏览器）</span><br><span class="line">export const downloadFile &#x3D; (url) &#x3D;&gt; &#123;</span><br><span class="line">  let elemIF &#x3D; document.createElement(&quot;iframe&quot;);</span><br><span class="line">  elemIF.id &#x3D; &#39;iframe&#39;</span><br><span class="line">  elemIF.src &#x3D; url;</span><br><span class="line">  elemIF.style.display &#x3D; &quot;none&quot;;</span><br><span class="line">  document.body.appendChild(elemIF);</span><br><span class="line">  const timer &#x3D; setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">    document.body.removeChild(elemIF);</span><br><span class="line">    clearTimeout(timer)</span><br><span class="line">  &#125;, 2000)</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 文件下载</span><br><span class="line">download(item) &#123;</span><br><span class="line">  let url &#x3D; this.base_url + item.fileId + (&#39;?download&#x3D;true&amp;filename&#x3D;&#39; + this.uriCode(&#96;$&#123;item.name&#125;&#96;));</span><br><span class="line">  downloadFile(url)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+遇到的问题：</li>
+<li>IE浏览器下载如果文件名是中文名，IE跳转下载会找不到路径，所以如果有携带参数，参数要进行转码。</li>
+<li>采用a标签，火狐默认打开，所以采用创建iframe标签方式。创建完，文件下载完，记得移除标签，并且移除标签时候记得（setTimeout内才可以移除）</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/13/css%E6%8A%80%E5%B7%A7-3-%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84offsetWidth%E3%80%81offsetHeight%E7%AD%89/" class="archive-article-date">
-  	<time datetime="2020-12-13T15:46:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/13/css%E6%8A%80%E5%B7%A7-3-%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84offsetWidth%E3%80%81offsetHeight%E7%AD%89/">css技巧(3. 你不知道的offsetWidth、offsetHeight等)</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B9%8B%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/11/css%E6%8A%80%E5%B7%A7-2-%E6%96%87%E6%9C%AC%E7%9C%81%E7%95%A5%E4%B9%8Btext-overflow-ellipsis/" class="archive-article-date">
-  	<time datetime="2020-12-10T16:47:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/01/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%EF%BC%88%E4%B8%80%EF%BC%89%E4%B9%8B%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端工具函数（一）之深度克隆</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/11/css%E6%8A%80%E5%B7%A7-2-%E6%96%87%E6%9C%AC%E7%9C%81%E7%95%A5%E4%B9%8Btext-overflow-ellipsis/">css技巧(2. 文本省略之text-overflow: ellipsis)</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/11/vue-cli3-%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-12-10T16:27:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/11/vue-cli3-%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/">vue-cli3 项目优化</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/08/css%E6%8A%80%E5%B7%A7-1-%E6%B0%B4%E5%B9%B3%E3%80%81%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80/" class="archive-article-date">
-  	<time datetime="2020-12-08T15:48:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/08/css%E6%8A%80%E5%B7%A7-1-%E6%B0%B4%E5%B9%B3%E3%80%81%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80/">css技巧(1.水平、垂直居中布局)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/24/python%E4%B9%8Bscrapy-%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-  	<time datetime="2020-03-24T14:44:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/24/python%E4%B9%8Bscrapy-%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/">python之scrapy(一、环境部署)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8Bcpu/" class="archive-article-date">
-  	<time datetime="2020-03-22T13:44:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8Bcpu/">计算机组成原理之cpu</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/25/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%97%85%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-02-24T16:13:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/25/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%97%85%E7%A8%8B/">我的博客新旅程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -471,8 +333,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
